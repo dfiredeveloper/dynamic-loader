@@ -19,7 +19,7 @@
     ],
     "author": "Ilemona Achimugu",
     "license": "MIT",
-    "homepage": "https://github.com/dfiredeveloper/dynamic-loader",
+    "homepage": "https://dsl-1.vercel.app",
     "devDependencies": {
         "@babel/core": "^7.24.9",
         "@babel/preset-env": "^7.24.8",
