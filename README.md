@@ -8,6 +8,7 @@ You can include Dynamic Loader in your project via npm:
 
 ```sh
 npm install dynamic-loader
+```
 
 Or by including the script directly in your HTML:
 
