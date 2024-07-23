@@ -1,6 +1,6 @@
 {
     "name": "dynamic-site-loader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A library to dynamically load content for static HTML websites.",
     "main": "dist/dynamic-loader.js",
     "scripts": {
