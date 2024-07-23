@@ -56,7 +56,7 @@ Include the provided CSS for transitions and error handling.
 ## Example
 1. Here's an example of a simple website using Dynamic Loader:
 
-2.Create index.html with navigation links and a content container.
+2. Create index.html with navigation links and a content container.
 
 3. Create additional HTML files (home.html, about.html, contact.html) with content for each page.
 
