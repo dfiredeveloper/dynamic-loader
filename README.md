@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ```
 
 CSS
+
 Include the provided CSS for transitions and error handling.
 ```
 #content {
