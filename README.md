@@ -12,13 +12,13 @@ npm install dynamic-loader
 
 Or by including the script directly in your HTML:
 
-```
+```html
 <script src="https://unpkg.com/dynamic-loader/dist/dynamic-loader.min.js"></script>
 ```
 ## Usage
 
 HTML Structure
-```
+```html
 <nav>
     <a href="home.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
@@ -30,7 +30,7 @@ HTML Structure
 ```
 
 Javascript
-```
+```javascript
 import DynamicLoader from 'dynamic-loader';
 
 // Initialize the loader
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 CSS
 
 Include the provided CSS for transitions and error handling.
-```
+```css
 #content {
     transition: opacity 0.3s;
 }
@@ -57,8 +57,11 @@ Include the provided CSS for transitions and error handling.
 Here's an example of a simple website using Dynamic Loader:
 
 Create index.html with navigation links and a content container.
+
 Create additional HTML files (home.html, about.html, contact.html) with content for each page.
+
 Add the above JavaScript to your main script file.
+
 Include the CSS for smooth transitions and error handling.
 
 ## Contributing
