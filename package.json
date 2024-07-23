@@ -1,0 +1,23 @@
+{
+    "name": "dynamic-loader",
+    "version": "1.0.0",
+    "description": "A library to dynamically load content for static HTML websites.",
+    "main": "dist/dynamic-loader.js",
+    "scripts": {
+      "build": "webpack --mode production",
+      "dev": "webpack --mode development"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/dfiredeveloper/dynamic-loader.git"
+    },
+    "keywords": ["dynamic loading", "SPA", "static websites"],
+    "author": "Ilemona Achimugu",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+      "webpack": "^5.0.0",
+      "webpack-cli": "^4.0.0"
+    }
+  }
+  
