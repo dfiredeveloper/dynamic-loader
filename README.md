@@ -7,13 +7,13 @@ A library to dynamically load content for static HTML websites, providing smooth
 You can include Dynamic Loader in your project via npm:
 
 ```sh
-npm install dynamic-loader
+npm install dynamic-site-loader
 ```
 
 Or by including the script directly in your HTML:
 
 ```html
-<script src="https://unpkg.com/dynamic-loader/dist/dynamic-loader.min.js"></script>
+<script src="https://unpkg.com/dynamic-site-loader/dist/dynamic-loader.min.js"></script>
 ```
 ## Usage
 
@@ -31,7 +31,7 @@ HTML Structure
 
 Javascript
 ```javascript
-import DynamicLoader from 'dynamic-loader';
+import DynamicLoader from 'dynamic-site-loader';
 
 // Initialize the loader
 document.addEventListener("DOMContentLoaded", () => {
@@ -54,15 +54,15 @@ Include the provided CSS for transitions and error handling.
 ```
 
 ## Example
-Here's an example of a simple website using Dynamic Loader:
+1. Here's an example of a simple website using Dynamic Loader:
 
-Create index.html with navigation links and a content container.
+2.Create index.html with navigation links and a content container.
 
-Create additional HTML files (home.html, about.html, contact.html) with content for each page.
+3. Create additional HTML files (home.html, about.html, contact.html) with content for each page.
 
-Add the above JavaScript to your main script file.
+4. Add the above JavaScript to your main script file.
 
-Include the CSS for smooth transitions and error handling.
+5. Include the CSS for smooth transitions and error handling.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
