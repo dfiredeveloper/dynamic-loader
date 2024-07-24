@@ -23,9 +23,48 @@
     <div id="content" class="container">
         <!-- Initial content will be loaded dynamically -->
     </div>
+    <div class="quick-guide container">
+        <h2>Quick Guide</h2>
+        <div class="guide-section">
+            <h3>Install via npm:</h3>
+            <div class="code-block">
+                <code>npm install dynamic-loader</code>
+                <button class="copy-btn" data-copy="npm install dynamic-loader"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="guide-section">
+            <h3>Use CDN:</h3>
+            <div class="code-block">
+                <code>&lt;script src="https://unpkg.com/dynamic-loader/dist/dynamic-loader.min.js"&gt;&lt;/script&gt;</code>
+                <button class="copy-btn" data-copy="&lt;script src='https://unpkg.com/dynamic-loader/dist/dynamic-loader.min.js'&gt;&lt;/script&gt;"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="github-info">
+            <a href="https://github.com/yourusername/dynamic-loader" target="_blank">
+                <i class="fab fa-github"></i> Stars: <span id="github-stars">0</span>
+            </a>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             new DynamicLoader('content');
+
+            // Copy to clipboard functionality
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const textToCopy = btn.getAttribute('data-copy');
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        alert('Copied to clipboard!');
+                    });
+                });
+            });
+
+            // Fetch GitHub stars
+            fetch('https://api.github.com/repos/yourusername/dynamic-loader')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('github-stars').textContent = data.stargazers_count;
+                });
         });
     </script>
 </body>
