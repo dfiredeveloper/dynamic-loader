@@ -53,9 +53,13 @@
             document.querySelectorAll('.copy-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const textToCopy = btn.getAttribute('data-copy');
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        alert('Copied to clipboard!');
-                    });
+                    const tempInput = document.createElement('input');
+                    tempInput.value = textToCopy;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    alert('Copied to clipboard!');
                 });
             });
 
