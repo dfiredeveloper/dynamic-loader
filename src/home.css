@@ -48,16 +48,59 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.error {
-    color: red;
-    font-weight: bold;
+.quick-guide {
+    background-color: #fff;
+    padding: 2em;
+    margin-top: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.fade {
-    opacity: 0;
-    transition: opacity 0.3s;
+.guide-section {
+    margin-bottom: 1em;
 }
 
-.show {
-    opacity: 1;
+.code-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5em;
+    background-color: #f1f1f1;
+    padding: 0.5em;
+    border-radius: 5px;
+    position: relative;
+}
+
+.code-block code {
+    margin: 0;
+    padding: 0;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    margin-left: 0.5em;
+    position: absolute;
+    right: 0.5em;
+}
+
+.copy-btn i {
+    font-size: 1em;
+}
+
+.github-info {
+    margin-top: 1em;
+}
+
+.github-info a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.github-info a:hover {
+    text-decoration: underline;
 }
