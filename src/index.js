@@ -29,34 +29,32 @@ class DynamicLoader {
         });
     }
 
-    fetchContent(url) {
+    async fetchContent(url) {
         if (!this.cache[url]) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to fetch ${url}`);
-                    return response.text();
-                })
-                .then(data => {
-                    const parser = new DOMParser();
-                    const newDocument = parser.parseFromString(data, "text/html");
-                    const newContent = newDocument.getElementById("content").innerHTML;
-                    this.cache[url] = newContent;
-                })
-                .catch(error => console.error('Error preloading page:', error));
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Failed to fetch ${url}`);
+                const data = await response.text();
+                const parser = new DOMParser();
+                const newDocument = parser.parseFromString(data, "text/html");
+                const newContent = newDocument.getElementById("content").innerHTML;
+                this.cache[url] = newContent;
+            } catch (error) {
+                console.error('Error preloading page:', error);
+            }
         }
     }
 
-    loadContent(url, pushState = true) {
+    async loadContent(url, pushState = true) {
         if (this.cache[url]) {
             this.updateContent(this.cache[url], url, pushState);
         } else {
-            this.fetchContent(url)
-                .then(() => {
-                    this.updateContent(this.cache[url], url, pushState);
-                })
-                .catch(error => {
-                    this.showError(`Failed to load content: ${error.message}`);
-                });
+            try {
+                await this.fetchContent(url);
+                this.updateContent(this.cache[url], url, pushState);
+            } catch (error) {
+                this.showError(`Failed to load content: ${error.message}`);
+            }
         }
     }
 
