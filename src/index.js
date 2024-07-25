@@ -9,11 +9,13 @@ class DynamicLoader {
     initialize() {
         const navLinks = document.querySelectorAll(".nav-link");
 
+        // Preload all linked pages
         navLinks.forEach(link => {
             const url = link.href;
             this.fetchContent(url);
         });
 
+        // Set up click event listeners
         navLinks.forEach(link => {
             link.addEventListener("click", (event) => {
                 event.preventDefault();
@@ -22,6 +24,7 @@ class DynamicLoader {
             });
         });
 
+        // Handle browser back/forward navigation
         window.addEventListener("popstate", (event) => {
             if (event.state && event.state.path) {
                 this.loadContent(event.state.path, false);
@@ -59,11 +62,7 @@ class DynamicLoader {
     }
 
     updateContent(content, url, pushState) {
-        this.contentContainer.style.opacity = 0;
-        setTimeout(() => {
-            this.contentContainer.innerHTML = content;
-            this.contentContainer.style.opacity = 1;
-        }, 300);
+        this.contentContainer.innerHTML = content;
 
         if (pushState) {
             try {
@@ -76,7 +75,6 @@ class DynamicLoader {
 
     showError(message) {
         this.contentContainer.innerHTML = `<div class="error">${message}</div>`;
-        this.contentContainer.style.opacity = 1;
     }
 }
 
