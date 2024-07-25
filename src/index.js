@@ -80,6 +80,14 @@ class DynamicLoader {
     }
 }
 
-
+// Polyfill for fetch in older browsers
+(function() {
+    if (!window.fetch) {
+        console.log('Fetch API not found, adding polyfill');
+        var script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js';
+        document.head.appendChild(script);
+    }
+})();
 
 export default DynamicLoader;
