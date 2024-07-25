@@ -66,7 +66,11 @@ class DynamicLoader {
         }, 300);
 
         if (pushState) {
-            history.pushState({ path: url }, '', url);
+            try {
+                history.pushState({ path: url }, '', url);
+            } catch (error) {
+                console.error('Failed to push state:', error);
+            }
         }
     }
 
@@ -75,5 +79,7 @@ class DynamicLoader {
         this.contentContainer.style.opacity = 1;
     }
 }
+
+
 
 export default DynamicLoader;
