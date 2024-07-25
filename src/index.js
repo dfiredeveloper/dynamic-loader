@@ -12,7 +12,9 @@ class DynamicLoader {
         // Preload all linked pages
         navLinks.forEach(link => {
             const url = link.href;
-            this.fetchContent(url);
+            this.fetchContent(url).then(content => {
+                this.cache[url] = content;
+            });
         });
 
         // Set up click event listeners
@@ -35,29 +37,31 @@ class DynamicLoader {
     async fetchContent(url) {
         if (!this.cache[url]) {
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, { cache: "force-cache" });
                 if (!response.ok) throw new Error(`Failed to fetch ${url}`);
                 const data = await response.text();
                 const parser = new DOMParser();
                 const newDocument = parser.parseFromString(data, "text/html");
                 const newContent = newDocument.getElementById("content").innerHTML;
                 this.cache[url] = newContent;
+                return newContent;
             } catch (error) {
                 console.error('Error preloading page:', error);
             }
+        } else {
+            return this.cache[url];
         }
     }
 
-    async loadContent(url, pushState = true) {
+    loadContent(url, pushState = true) {
         if (this.cache[url]) {
             this.updateContent(this.cache[url], url, pushState);
         } else {
-            try {
-                await this.fetchContent(url);
-                this.updateContent(this.cache[url], url, pushState);
-            } catch (error) {
+            this.fetchContent(url).then(content => {
+                this.updateContent(content, url, pushState);
+            }).catch(error => {
                 this.showError(`Failed to load content: ${error.message}`);
-            }
+            });
         }
     }
 
