@@ -10,10 +10,10 @@ You can include Dynamic Loader in your project via npm:
 npm install dynamic-site-loader
 ```
 
-Or by including the script directly in your HTML:
+Or by including the script directly in your HTML with CDN:
 
 ```html
-<script src="https://unpkg.com/dynamic-site-loader/dist/dynamic-loader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamic-site-loader@latest/dist/dynamic-loader.min.js"></script>
 ```
 ## Usage
 
